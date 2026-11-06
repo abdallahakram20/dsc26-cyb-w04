@@ -1,20 +1,13 @@
-# AI usage: dsc26-cyb-w04
-
-Keep the three headings below exactly as they are. The grader stops and scores 0 if this file is
-missing or any of the three headings is missing. It does not score what you write; your Track
-Mentor reads it, and the W8 defence can ask about it.
-
 ## Tools
 
 Claude (Anthropic) wrote the first version of `triage/core.py` and `triage/__main__.py` from the task spec. I ran and reviewed the code myself.
 
 ## What AI got wrong
 
-At first, the AI couldn't correctly analyze `security-severity` in SARIF, if it was given as a string, e.g., `"8.8"`, and not as a float. It also did not fall back to result or rule levels, if `security-severity` was missing. I noticed this while testing the `test_semgrep_uses_security_severity_then_level` function, which also failed as well, and fixed this by converting the string score to a float and also adding fall back logic in `_sarif_severity()` function.
+At first, the AI couldn't correctly analyze `security-severity` in SARIF, if it was given as a string, e.g., "8.8", and not as a float. It also did not fall back to result or rule levels, if `security-severity` was missing. I noticed this while testing the `test_semgrep_uses_security_severity_then_level` function, which also failed as well, and fixed this by converting the string score to a float and also adding fall back logic in `_sarif_severity()` function.
 
 ## In my own words
 
-<!-- One or two sentences each, written without AI. -->
 
 1. Bandit rates the MD5 in `etag()` HIGH and `DB_PASSWORD` LOW. Which would you fix first in Diwan's code, and why?
 
