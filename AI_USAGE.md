@@ -4,7 +4,7 @@ Claude (Anthropic) wrote the first version of `triage/core.py` and `triage/__mai
 
 ## What AI got wrong
 
-At first, the AI couldn't correctly analyze `security-severity` in SARIF, if it was given as a string, e.g., "8.8", and not as a float. It also did not fall back to result or rule levels, if `security-severity` was missing. I noticed this while testing the `test_semgrep_uses_security_severity_then_level` function, which also failed as well, and fixed this by converting the string score to a float and also adding fall back logic in `_sarif_severity()` function.
+At first, the AI couldn't correctly analyze `security-severity` in SARIF, if it was given as a string, e.g., “8.8”, and not as a float. It also did not fall back to result or rule levels, if `security-severity` was missing. I noticed this while testing the `test_semgrep_uses_security_severity_then_level` function, which also failed as well, and fixed this by converting the string score to a float and also adding fall back logic in `_sarif_severity()` function.
 
 ## In my own words
 
