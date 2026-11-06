@@ -1,0 +1,20 @@
+[
+  {
+    "fingerprint": "21ce33cceba7732e3ee316c9d0f9dc4ea362bc520edeb918ba87ebd72fbbc956",
+    "reason": "MD5 is only used for the HTTP ETag of PDF exports, not for security",
+    "expires": "2027-01-31",
+    "by": "heba.fouad"
+  },
+  {
+    "fingerprint": "c6a9fb913ce6661009bd585728206b7619731e80dcf0527458e62323ab55de72",
+    "reason": "Exchange-rate fetch moves to the new client in Sprint 2",
+    "expires": "2026-10-31",
+    "by": "diwan.appsec"
+  },
+  {
+    "fingerprint": "6ad48d7df5b7dd2000c6e55b6f1bd576447144cf7c3de9dc4b66bcfbeccbae03",
+    "reason": "test",
+    "expires": "2027-06-30",
+    "by": "intern"
+  }
+]

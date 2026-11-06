@@ -1,0 +1,7 @@
+{
+  "bandit:B506": "unsafe-deserialization",
+  "semgrep:diwan.unsafe-yaml-load": "unsafe-deserialization",
+  "bandit:B301": "unsafe-deserialization",
+  "bandit:B324": "weak-hash",
+  "semgrep:diwan.weak-hash-md5": "weak-hash"
+}
