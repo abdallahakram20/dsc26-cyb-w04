@@ -1,0 +1,39 @@
+rules:
+  - id: diwan.sql-string-format
+    languages: [python]
+    severity: ERROR
+    message: SQL built with string formatting. Use a parameterised query.
+    metadata:
+      cwe: ["CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"]
+      security-severity: "8.8"
+    pattern-either:
+      - pattern: $CUR.execute("..." % $X)
+      - pattern: $CUR.execute(f"...")
+  - id: diwan.subprocess-shell-true
+    languages: [python]
+    severity: ERROR
+    message: subprocess with shell=True and a formatted command string.
+    metadata:
+      cwe: ["CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')"]
+    pattern: subprocess.$F("..." % $X, ..., shell=True, ...)
+  - id: diwan.unsafe-yaml-load
+    languages: [python]
+    severity: WARNING
+    message: yaml.load with an unsafe Loader can construct arbitrary objects. Use yaml.safe_load.
+    metadata:
+      cwe: ["CWE-502: Deserialization of Untrusted Data"]
+    pattern: yaml.load($X, Loader=yaml.Loader)
+  - id: diwan.requests-verify-false
+    languages: [python]
+    severity: WARNING
+    message: TLS certificate verification is disabled.
+    metadata:
+      cwe: ["CWE-295: Improper Certificate Validation"]
+    pattern: requests.$M(..., verify=False, ...)
+  - id: diwan.weak-hash-md5
+    languages: [python]
+    severity: INFO
+    message: MD5 used. Fine for an ETag, not for passwords or signatures.
+    metadata:
+      cwe: ["CWE-328: Use of Weak Hash"]
+    pattern: hashlib.md5(...)
