@@ -1,0 +1,24 @@
+name: public-tests
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      # DSC Ops: replace each tag below with the action's full-length commit SHA before publishing
+      # the template, and keep the tag in a comment (W7, "CI hardening in three lines").
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -r requirements.txt
+      - run: python -m pytest -q tests/
